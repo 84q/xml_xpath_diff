@@ -30,3 +30,4 @@ dir = ARGV[2]
   exit -1 if count < 0
   puts "No elements found.(#{file})" if count == 0
 end
+exit 0

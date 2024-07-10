@@ -1,4 +1,4 @@
-read -p "Enter the dir name: " dir_base
+read -p "dir name > " dir_base
 dir=_$dir_base
 
 mkdir $dir
@@ -22,3 +22,14 @@ cd $dir
 xmllint --encode utf-8 --format $input1 --output $input1
 xmllint --encode utf-8 --format $input2 --output $input2
 diff $input1 $input2 > diff.txt
+
+if [ $? -ne 0 ]; then
+  echo "The files are different."
+  echo "***********************"
+  cat diff.txt
+  echo "***********************"
+else
+  echo "The files are identical."
+fi
+
+cd ..
